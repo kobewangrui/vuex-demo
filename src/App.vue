@@ -5,8 +5,8 @@
     <button @click="$store.commit('add',10)">mutations同步修改：count add</button>
     <button @click="$store.commit('reduce',10)">mutations同步修改：count reduce</button>
     <br>
-    <button @click="addAction()">actions异步修改：count add</button>
-    <button @click="reduceAction()">actions异步修改：count reduce</button>
+    <button @click="addAction(1000)">actions异步修改：count add</button>
+    <button @click="reduceAction(1000)">actions异步修改：count reduce</button>
     <router-view/>
   </div>
 </template>
@@ -19,11 +19,11 @@ export default {
     console.log(this.$store.commit)
   },
   methods:{
-    addAction(){
-      this.$store.dispatch('addAction');
+    addAction(n){
+      this.$store.dispatch('addAction',n);
     },
-    reduceAction(){
-      this.$store.dispatch('reduceAction');
+    reduceAction(n){
+      this.$store.dispatch('reduceAction',n);
     }
   }
 }

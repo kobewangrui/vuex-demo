@@ -15,10 +15,10 @@ const mutations = {//mutations是固定的写法，用来改变state的值的放
     }
 }
 const actions = {//actions和mutations功能一样，不同得是actions是异步修改该state状态，actions提交的是multation而不是直接更改状态
-    addAction(context){
+    addAction(context,n){
         context.commit('add',n);//actions是可以调用mutations里面的方法的
     },
-    reduceAction(context){
+    reduceAction(context,n){
         context.commit('reduce',n);
     }
 }
