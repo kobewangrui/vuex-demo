@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+    <b>王睿龙的第一个vuex状态count:{{$store.state.count}}</b>
     <router-view/>
   </div>
 </template>
