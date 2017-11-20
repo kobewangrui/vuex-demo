@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './vuex/store'//引入store
+import '@/assets/asyncFun.js'//关于promise 和async await
 
 Vue.config.productionTip = false
 

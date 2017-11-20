@@ -68,3 +68,4 @@ export default new Vuex.Store({
 
 // store.state.a//取a的状态
 // store.state.b//取b的状态
+
