@@ -39,3 +39,31 @@ export default new Vuex.Store({
 
     // mutations方法触发
     this['a'].commit('add',10);
+
+
+
+
+
+
+// 关于分割模块的做法
+// const moduleA = {
+//     state:{},
+//     mutations:{},
+//     actions:{}
+// }
+// const moduleB = {
+//     state:{},
+//     mutations:{},
+//     actions:{}
+// }
+
+// const store = new Vuex.Store({
+//     modules:{
+//         a:moduleA,
+//         b:moduleB
+//     }
+// })
+
+
+// store.state.a//取a的状态
+// store.state.b//取b的状态
