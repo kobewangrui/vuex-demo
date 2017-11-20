@@ -9,8 +9,10 @@ const state = {//在state可以添加全局共享的状态，
 const mutations = {//mutations是固定的写法，用来改变state的值的放假，需要写在其中。同步修改state状态
     add(state,n){
         state.count += n;
+        console.log('立即执行的mutations/actions');
     },
     reduce(state,n){
+        console.log('mutations/actions reduce');
         state.count -= n;
     }
 }
@@ -20,13 +22,20 @@ const actions = {//actions和mutations功能一样，不同得是actions是异�
     },
     reduceAction(context,n){
         context.commit('reduce',n);
-    }
+    },
 }
-// Action通过store.dispatch方法触发
-// store.dispatch('addAction')
-
 export default new Vuex.Store({
     state,
     mutations,
     actions,
 })
+
+
+
+    // Action通过store.dispatch方法触发
+    // store.dispatch('addAction')
+    this['a'].dispatch('addAction',10);//context即是store(在当前页面立即执行的actions)
+
+
+    // mutations方法触发
+    this['a'].commit('add',10);

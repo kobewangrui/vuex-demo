@@ -16,7 +16,8 @@ export default {
   name: 'app',
   data(){return{}},
   created(){
-    console.log(this.$store.commit)
+    this.$store.commit('reduce',10);
+    this.reduceAction(10);
   },
   methods:{
     addAction(n){
