@@ -5,7 +5,8 @@ import App from './App'
 import router from './router'
 import store from './vuex/store'//引入store
 import '@/assets/asyncFun.js'//关于promise 和async await
-
+import Print from 'vue-print-nb'
+Vue.use(Print); //注册
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

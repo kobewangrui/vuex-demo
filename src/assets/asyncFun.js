@@ -3,11 +3,11 @@ function asyncFun(){
     let p = new Promise((resolve,reject)=>{
         setTimeout(()=>{
             // console.log('异步操作完成');
-            if('true'){     
-                    resolve('resolve的数据');
-                }else{
-                    reject('reject Value：这是捕捉到的出错')
-                };
+            if(true){     
+                resolve('resolve的数据');
+            }else{
+                reject('reject Value：这是捕捉到的出错')
+            };
             },1000);
     });
     return p;
