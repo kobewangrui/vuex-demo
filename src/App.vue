@@ -9,7 +9,7 @@
       <button @click="reduceAction(1000)">actions异步修改：count reduce</button>
       <router-view/>
       </div>
-      <button v-print="'#printTest'">打印</button>
+      <button v-print="'#printTest'">打印111111111111111111111111</button>
       <img src="./assets/logo.png">
   </div>
 </template>
