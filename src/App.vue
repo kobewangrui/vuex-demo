@@ -12,6 +12,7 @@
       <button v-print="'#printTest'">打印111111111111111111111111</button>
       <button v-print="'#printTest'">2222222222222222222</button>
       <button v-print="'#printTest'">3333333333333333333333</button>
+      <button v-print="'#printTest'">3333333333333333333333</button>
       <img src="./assets/logo.png">
   </div>
 </template>
