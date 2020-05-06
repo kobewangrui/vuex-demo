@@ -29,7 +29,7 @@ function sleepFun(time){
     let p = new Promise((resolve,reject)=>{
         setTimeout(()=>{
             // console.log('异步执行完成');//3s后弹出
-            if(''){
+            if(true){
                 resolve('resolve value');
             }else{
                 reject('reject Value：这是捕捉到的出错')
@@ -42,9 +42,9 @@ function sleepFun(time){
 async function startFun(){
     try{
         let result = await sleepFun(3000);
-        // console.log(`result Value:${result}`);//3s后弹出
+        console.log(`result Value:${result}`);//3s后弹出
     }catch(error){
-        // console.log(error);
+        console.log(error);
     }
 
 };

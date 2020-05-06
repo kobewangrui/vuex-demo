@@ -13,16 +13,24 @@
       <button v-print="'#printTest'">2222222222222222222</button>
       <button v-print="'#printTest'">3333333333333333333333</button>
       <img src="./assets/logo.png">
+      <!-- pdf预览 -->
+      <!-- <pdf ref="pdf" :src="pdfUrl" style="width: 100%;"></pdf> -->
   </div>
 </template>
-
 <script>
+// import pdf from 'vue-pdf'
 export default {
   name: 'app',
-  data(){return{}},
+  data(){return{
+    pdfUrl:'',
+  }},
   created(){
     this.$store.commit('reduce',10);
     this.reduceAction(10);
+    // this.pdfUrl = pdf.createLoadingTask(pdfurl)
+  },
+  components:{
+      // pdf:pdf
   },
   methods:{
     addAction(n){
