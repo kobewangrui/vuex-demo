@@ -1,6 +1,8 @@
 <template>
   <div class="hello">
     child components
+    <p>helloData:{{parentData}}</p>
+    <span @click="parentFunRun">子组件内父组件方法运行</span>
   </div>
 </template>
 
@@ -11,7 +13,18 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
-  }
+  },
+  methods:{
+    parentFunRun(){
+      this.$emit('emitFun','我是子组件传过来的数据啊');
+    },
+  },
+  watch:{
+    'parentData':function(val,oldVal){
+      console.log('change')//再子组件可以监听父组件props传值的改变
+    }
+  },
+  props:['parentData'],
 }
 </script>
 

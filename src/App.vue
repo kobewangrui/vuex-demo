@@ -13,16 +13,28 @@
       <button v-print="'#printTest'">2222222222222222222</button>
       <button v-print="'#printTest'">3333333333333333333333</button>
       <img src="./assets/logo.png">
+      <button @click="changeNumber">watch|computed区别</button>
+	  <p>computed：{{change}}</p>
+	  <p>wath：{{computedORwatch}}</p>
       <!-- pdf预览 -->
       <!-- <pdf ref="pdf" :src="pdfUrl" style="width: 100%;"></pdf> -->
+	  
+      <button @click="changeHello">父组件改变helloData：changeHelloData</button>
+      hello子组件组件：
+      <hello :parentData="helloData" @emitFun="parentFun"/>
+	  子=>父数据：{{childData}}
   </div>
 </template>
 <script>
 // import pdf from 'vue-pdf'
+import Hello from '@/components/HelloWorld'
 export default {
   name: 'app',
   data(){return{
     pdfUrl:'',
+	computedORwatch:1,
+	helloData:1,
+	childData:'',
   }},
   created(){
     this.$store.commit('reduce',10);
@@ -33,12 +45,35 @@ export default {
       // pdf:pdf
   },
   methods:{
+	  parentFun(childMsg){
+		  this.childData = childMsg;
+		  alert(childMsg)
+	  },
+	changeHello(){
+		this.helloData++;
+	},
     addAction(n){
       this.$store.dispatch('addAction',n);
     },
     reduceAction(n){
       this.$store.dispatch('reduceAction',n);
-    }
+    },
+	changeNumber(){
+		this.computedORwatch += 10;
+	},
+  },
+  components:{
+      'hello':Hello,
+  },
+  computed:{
+	  change(){
+		  return this.computedORwatch + 1;
+	  },
+  },
+  watch:{
+	  'computedORwatch':function(val,oldVal){
+		  val + 1
+	  }
   }
 }
 </script>
