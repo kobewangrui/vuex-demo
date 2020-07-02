@@ -16,8 +16,40 @@
         created(){
             this.deepCloneFun()//深拷贝、浅拷贝区别
             this.destructuringFun()//赋值解构
+            this.setArray()//set 数组去重
+
+            let str = 'sjklfjskl;12312'
+            console.log('string.includes()方法:',str.includes('sjk'))
         },
         methods:{
+            setArray(){
+
+                let arr = [1,2,3,4,5,6,7,8,8,8,8,999];//数组去重
+                // new Set() 是一种新的数据结构，存储的数据唯一，不能重复
+                console.log(1111111111111,new Set(arr));//Set数据结构
+                let newArray = Array.from(new Set(arr));
+                // Array.from(arg)//from方法可以将一些数据结构转换为数组 如：set map
+                console.log(2222222,newArray);
+
+
+                let a = {
+                    b:1,
+                    c:2,
+                    d:3,
+                    e:10,
+                }
+                // Array.of方法用于将一组值，转换为数组。
+                console.log(99999999999999999999,JSON.stringify(Array.of(a)))
+                console.log(66666666666666666,JSON.stringify(Array.of(5,1,2,3,45,4,565,5,5)))
+
+
+
+
+
+
+
+
+            },
             destructuringFun(){
                 let [a,b,c] = [1,2,3];
                 let [...number] = [3,2,1,4,5,6]

@@ -14,6 +14,8 @@
       <button v-print="'#printTest'">3333333333333333333333</button>
       <img src="./assets/logo.png">
       <button @click="changeNumber">watch|computed区别</button>
+      computed：会有缓存、用于多个数据的变化影响一个数据、会有getter setter   依赖数据变化而计算、改变  ---------和method相比不用调用，
+      watch:  监听数据、数据变化引发一些操作，类似一个数据的变化，触发一系列的操作或者影响多个数据
 	  <p>computed：{{change}}</p>
 	  <p>wath：{{computedORwatch}}</p>
       <!-- pdf预览 -->
