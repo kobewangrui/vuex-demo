@@ -8,6 +8,17 @@
 
 
 
+
+            浏览器输入URL后发生了什么？简约
+            浏览器向DNS服务器查找输入URL对应的IP地址。
+            DNS服务器返回网站的IP地址。
+            浏览器根据IP地址与目标web服务器在80端口上建立TCP连接
+            浏览器获取请求页面的html代码。
+            浏览器在显示窗口内渲染HTML。
+            窗口关闭时，浏览器终止与服务器的连接。
+
+
+
     -------------------------- index page -------------------------------
     <indexchilds :propsData="fatherData" @emitFuns="parentMethods"></indexchilds>
     <span @click="changeFatherData">改变fatherData</span>
