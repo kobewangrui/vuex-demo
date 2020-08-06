@@ -51,6 +51,9 @@
         console.warn(Person.prototype===wrl.__proto__)//true
 
 
+        Promise.resolve(1).then().then((res)=>{
+            console.warn('promise',res);//1
+        })
 
 
 </script>
