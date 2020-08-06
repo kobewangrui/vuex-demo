@@ -25,27 +25,33 @@
     Object.defineProperty(obj,'a',{
         value:17,
     });
-    console.error(obj)
+    console.warn(obj)
     Object.defineProperty(obj,'a',{
         get(value){
-            console.warn('获取');
+            console.warn('获取',value);
             return value
         },
         set(value){
-            console.warn('设置')
+            console.warn('设置',value)
             value = value
         }
     });
     obj.a = 6;
-    obj.a;
+    obj.a
 
 
 
     // 关于prototype和__proto__
         class Person{
-
+            constractor(x,y){
+                this.x = x;
+                this.y = y;
+            }
+            reverse(){
+                return x.reverse;
+            }
         }
-        var wrl = new Person()
+        var wrl = new Person(10,20)
         console.warn(Person.prototype)//class的原型
         console.warn(wrl.__proto__)//实例获取class的原型
         console.warn(Person.prototype===wrl.__proto__)//true
@@ -55,5 +61,23 @@
             console.warn('promise',res);//1
         })
 
+
+        // es6 proxy双向数据绑定实现
+        let targetObj = {
+            name:'wrl',
+            age:33,
+        }
+        target = new Proxy(targetObj,{
+            get(targetObj,key){
+                console.log('get',key)
+                return targetObj[key]
+            },
+            set(target,key,value){
+                console.log('set',key)
+                targetObj[key] = value
+            },
+        })
+        target.age = 6
+        target.age
 
 </script>
