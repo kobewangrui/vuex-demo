@@ -67,6 +67,18 @@
             name:'wrl',
             age:33,
         }
+        // get(target, propKey, receiver)
+        // target：目标对象
+        // propKey：属性名
+        // receiver（可选）：proxy 实例本身（严格地说，是操作行为所针对的对象
+
+
+        // set(target, propKey, value, receiver)
+        // target：目标对象
+        // propKey：属性名
+        // value：属性值
+        // receiver（可选）：Proxy 实例本身
+
         target = new Proxy(targetObj,{
             get(targetObj,key){
                 console.log('get',key)
