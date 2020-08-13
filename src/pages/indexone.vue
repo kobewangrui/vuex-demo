@@ -40,7 +40,7 @@
     obj.a
 
 
-
+    // 所有对象的__proto__都指向其构造器的prototype
     // 关于prototype和__proto__
         class Person{
             constractor(x,y){
