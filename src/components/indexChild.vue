@@ -30,6 +30,8 @@
                 let newArray = Array.from(new Set(arr));
                 // Array.from(arg)//from方法可以将一些数据结构转换为数组 如：set map
                 console.log(2222222,newArray);
+                console.log([...new Set(arr)])//最简单的数组去重
+
 
 
                 let a = {
