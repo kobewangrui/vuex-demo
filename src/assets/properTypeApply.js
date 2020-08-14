@@ -9,7 +9,7 @@ function Animal(name){//构造方法
 Animal.prototype.eat = function(){//原型添加方法
     console.log('ead Fun')
 }
-console.log(Animal === Animal.prototype.constructor)//true
+console.log(Animal === Animal.prototype.constructor)//true Animal是Animal原型的构造函数
 
 // 1.原型链继承
 function Cat(){}
@@ -17,7 +17,7 @@ Cat.prototype = new Animal();//给Cat的原型指向 Animal 的实例
 let scat = new Cat();//实例化子类
 scat.sleep()
 console.log(scat.__proto__ === Cat.prototype)//true
-console.log(Animal === Cat.prototype.constructor)//true
+console.log(Animal === Cat.prototype.constructor)//true 
 
 // 2.构造继承
 // function Cat(){
