@@ -9,20 +9,26 @@ const state = {//在state可以添加全局共享的状态，
 const mutations = {//mutations是固定的写法，用来改变state的值的放假，需要写在其中。同步修改state状态
     add(state,n){
         state.count += n;
-        console.log('立即执行的mutations/actions');
+        console.log('立即执行的mutations/actions add');
     },
     reduce(state,n){
-        console.log('mutations/actions reduce');
+        console.log('立即执行的mutations/actions reduce');
         state.count -= n;
     }
 }
 const actions = {//actions和mutations功能一样，不同得是actions是异步修改该state状态，actions提交的是multation而不是直接更改状态
     addAction(context,n){
         // 这里可以写点异步取数据等操作，例如ajax取数据、vue-resource取数据
-        context.commit('add',n);//actions是可以调用mutations里面的方法的
+        setTimeout(()=>{
+            console.log('异步 action add');
+            context.commit('add',n);//actions是可以调用mutations里面的方法的
+        },n)
     },
     reduceAction(context,n){
-        context.commit('reduce',n);
+        setTimeout(()=>{
+            console.log('异步 action reduce');
+            context.commit('reduce',n);
+        },n)
     },
 }
 export default new Vuex.Store({

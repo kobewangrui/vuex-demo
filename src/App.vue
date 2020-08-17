@@ -1,13 +1,9 @@
 <template>
   <div id="app">
-    <div id="printTest">
-      <b>王睿龙的第一个vuex状态count:{{$store.state.count}}</b>
-      <button @click="$store.commit('add',10)">mutations同步修改：count add</button>
-      <button @click="$store.commit('reduce',10)">mutations同步修改：count reduce</button>
-      <br>
-      <button @click="addAction(1000)">actions异步修改：count add</button>
-      <button @click="reduceAction(1000)">actions异步修改：count reduce</button>
+      <router-link to="/pageOne" tag="h5">跳转indexone</router-link>
+      <router-link to="/pageTwo" tag="h5">跳转indexTwo</router-link>
       <router-view/>
+<<<<<<< HEAD
       </div>
       <button v-print="'#printTest'">打印</button>
       <img src="./assets/logo.png">
@@ -75,6 +71,10 @@ export default {
 }
 </script>
 
+=======
+  </div>
+</template>
+>>>>>>> homebranch
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
