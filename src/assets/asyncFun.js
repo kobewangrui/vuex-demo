@@ -102,3 +102,6 @@ startFun();
     }).catch((error) => {
         console.log(error)  // 打开的是 'failed'
     })
+
+
+    // Promise.race可用用来设置请求接口网络超时，10s后执行的空promise,和请求数据。如果请求数据超过10s，则率先返回10s后执行的网络超时,巧妙
