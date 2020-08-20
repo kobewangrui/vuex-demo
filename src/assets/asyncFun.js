@@ -58,3 +58,47 @@ async function startFun(){
 
 
 startFun();
+
+
+
+
+    //Promise.all()
+    //Promise.all可以将多个Promise实例包装成一个新的Promise实例。同时，成功和失败的返回值是不同的，成功的时候返回的是一个结果数组，而失败的时候则返回最先被reject失败状态的值。
+    let wake = (time) => {
+        return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(`${time / 1000}秒后醒来`)
+        }, time)
+        })
+    }
+    
+    let p1 = wake(3000)
+    let p2 = wake(2000)
+    
+    Promise.all([p1, p2]).then((result) => {
+        console.log(result)       // [ '3秒后醒来', '2秒后醒来' ]
+    }).catch((error) => {
+        console.log(error)
+    })
+
+
+
+    //Promise.race()
+    //顾名思义，Promse.race就是赛跑的意思，意思就是说，Promise.race([p1, p2, p3])里面哪个结果获得的快，就返回那个结果，不管结果本身是成功状态还是失败状态。
+    let p1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('success')
+        },1000)
+    })
+    
+    let p2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject('failed')
+        }, 500)
+    })
+    
+    Promise.race([p1, p2]).then((result) => {
+        console.log(result)
+    }).catch((error) => {
+        console.log(error)  // 打开的是 'failed'
+    })
