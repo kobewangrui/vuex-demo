@@ -4,6 +4,7 @@
 </div>
 </template>
 <script>
+export default{}
 // 应当直接在 Object 构造器对象上调用此方法，而不是在任意一个 Object 类型的实例上调用。
 //vue双向绑定原理  数据劫持 结合 发布订阅模式
 // 核心： object.defineProperty 
@@ -78,15 +79,15 @@
         // propKey：属性名
         // value：属性值
         // receiver（可选）：Proxy 实例本身
-
-        target = new Proxy(targetObj,{
+        let target = new Proxy(targetObj,{//不申明，报target is not defined  
             get(targetObj,key){
                 console.log('get',key)
                 return targetObj[key]
             },
-            set(target,key,value){
+            set(targetObj,key,value){
                 console.log('set',key)
                 targetObj[key] = value
+                return true//不加会报错
             },
         })
         target.age = 6

@@ -6,12 +6,17 @@ Vue.use(Vuex);
 const state = {//在state可以添加全局共享的状态，
     count:1
 }
+const getters = {
+    gettersConut: state=>state.count*.3//getters在vuex中相当于computed的功能，计算属性之用
+}
 const mutations = {//mutations是固定的写法，用来改变state的值的放假，需要写在其中。同步修改state状态
     add(state,n){
+        if(!JSON.stringify(Object.prototype.toString.apply(n)).includes('Number')){alert('参数非数字');return false}
         state.count += n;
         console.log('立即执行的mutations/actions add');
     },
     reduce(state,n){
+        if(!JSON.stringify(Object.prototype.toString.apply(n)).includes('Number')){alert('参数非数字');return false}
         console.log('立即执行的mutations/actions reduce');
         state.count -= n;
     }
@@ -20,21 +25,24 @@ const actions = {//actions和mutations功能一样，不同得是actions是异�
     addAction(context,n){
         // 这里可以写点异步取数据等操作，例如ajax取数据、vue-resource取数据
         setTimeout(()=>{
+        if(!JSON.stringify(Object.prototype.toString.apply(n)).includes('Number')){alert('参数非数字');return false}
             console.log('异步 action add');
             context.commit('add',n);//actions是可以调用mutations里面的方法的
-        },n)
+        },n*100)
     },
     reduceAction(context,n){
+        if(!JSON.stringify(Object.prototype.toString.apply(n)).includes('Number')){alert('参数非数字');return false}
         setTimeout(()=>{
             console.log('异步 action reduce');
             context.commit('reduce',n);
-        },n)
+        },n*100)
     },
 }
 export default new Vuex.Store({
     state,
     mutations,
     actions,
+    getters,
 })
 
 
