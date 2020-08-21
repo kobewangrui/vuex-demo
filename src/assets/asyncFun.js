@@ -1,6 +1,6 @@
 //promist测试
 function asyncFun(){
-    let p = new Promise((resolve,reject)=>{
+    let p = new Promise((resolve,reject)=>{//Promise是一个容器里面放一些异步操作
         setTimeout(()=>{
             // console.log('异步操作完成');
             if(true){     
@@ -24,7 +24,7 @@ asyncFun().then((val)=>{
 
 // async await测试
 // 理解：async表示这个是async函数，
-// await只能等待promise返回结果了才继续执行，后面应该跟着一个promise对象，跟一个其他返回值也没关系，只是会立即执行，没有意义
+// await只能等待promise返回结果了才继续执行，后面应该跟着一个promise对象，跟一个其他返回值也没关系，只是会立即执行(会默认变为Promise.resolve(value))，没有意义
 function sleepFun(time){
     let p = new Promise((resolve,reject)=>{
         setTimeout(()=>{
@@ -36,7 +36,7 @@ function sleepFun(time){
             }
         },time);
     });
-    return p;//return一个promise对象
+    return p;//return一个promise对象  如果没有return  ,则默认return一个Promise.resolve(undefined),     return value 等于 Promise.resolve(undefined)
 };
 
 async function startFun(){
