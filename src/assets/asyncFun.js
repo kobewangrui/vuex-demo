@@ -27,6 +27,105 @@ asyncFun().then((val)=>{
 
 
 
+
+// 关于await后面跟不跟Promise
+f1=()=>{//await后Promise
+    return new Promise((resolve)=>{
+        setTimeout(() => {
+            console.log("周")
+            resolve();     //这一步必写，否则会阻塞在这里
+        }, 1000);
+    })
+   
+}
+f2=()=>{
+    return new Promise((resolve)=>{
+       
+        setTimeout(() => {
+            console.log("震")
+            resolve();
+        }, 1000);
+    })
+}
+f3=()=>{
+    return new Promise((resolve)=>{
+       
+        setTimeout(() => {
+            console.log("南")
+            resolve();
+        }, 1000);
+    })
+}
+async function  con(){
+         await f1();
+         await f2();
+         await f3();
+}
+con();
+// 打印结果  每隔1秒输出一个字  周 震 南
+
+
+
+function H1(){//await后普通
+    setTimeout(()=>{
+        console.log("I  ")
+    },1000)
+}
+function H2(){
+    setTimeout(()=>{
+    console.log("am  ")
+   },1000)
+}
+function H3(){
+    setTimeout(()=>{
+    console.log("fangqianwen  ")
+    },1000)
+}
+async function  Hon(){
+    await H1();
+    await H2();
+    await H3();
+}
+Hon();
+// 打印结果  隔了一秒后，同时输出三个字 I am  fangqianwen  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // async await测试
 // 理解：async表示这个是async函数，
 // await只能等待promise返回结果了才继续执行，后面应该跟着一个promise对象，跟一个其他返回值也没关系，只是会立即执行(会默认变为Promise.resolve(value))，没有意义
