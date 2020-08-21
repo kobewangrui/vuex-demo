@@ -40,7 +40,6 @@ f1=()=>{//await后Promise
 }
 f2=()=>{
     return new Promise((resolve)=>{
-       
         setTimeout(() => {
             console.log("震")
             resolve();
@@ -49,7 +48,6 @@ f2=()=>{
 }
 f3=()=>{
     return new Promise((resolve)=>{
-       
         setTimeout(() => {
             console.log("南")
             resolve();
@@ -88,35 +86,6 @@ async function  Hon(){
 }
 Hon();
 // 打印结果  隔了一秒后，同时输出三个字 I am  fangqianwen  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
