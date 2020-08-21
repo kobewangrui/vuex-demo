@@ -1,6 +1,6 @@
 //promist测试
 function asyncFun(){
-    let p = new Promise((resolve,reject)=>{//Promise是一个容器里面放一些异步操作
+    let p = new Promise((resolve,reject)=>{//Promise是一个容器里面放一些异步操作(如 ajax)
         setTimeout(()=>{
             // console.log('异步操作完成');
             if(true){     
