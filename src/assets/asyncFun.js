@@ -68,6 +68,7 @@ async function  con(){
 
 
 function H1(){//await后普通
+    console.log('H1 Fun')
     setTimeout(()=>{
         console.log("I  ")
     },1000)
@@ -97,7 +98,7 @@ async function  Hon(){
     return '123'//return 之后then的参数才会得到值 ，类似return Promise.resolve(123)
 }
 Hon().then(v=>console.log(v,'Hon Fun Then'));
-// 打印结果  王大锤 HonFun   123Hon Fun Then 隔了一秒后，同时输出三个字 I am  fangqianwen  
+// 打印结果 H1Fun(所以说不放在promise容器没用) 王大锤 HonFun   123Hon Fun Then 隔了一秒后，同时输出三个字 I am  fangqianwen  
 // 之所以这样是因为王大锤 HonFun是同步任务顺序执行  promise在事件轮询的微队列在同步任务之后执行  await在事件轮询的宏队列最后才执行   
 
 
