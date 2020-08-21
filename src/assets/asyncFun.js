@@ -80,6 +80,7 @@ function H3(){
     },1000)
 }
 async function  Hon(){
+    // 同时执行
     await H1();
     await H2();
     await H3();
