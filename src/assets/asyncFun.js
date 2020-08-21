@@ -29,16 +29,16 @@ asyncFun().then((val)=>{
 
 
 // 关于await后面跟不跟Promise
-f1=()=>{//await后Promise
+let f1=()=>{//await后Promise
     return new Promise((resolve)=>{
         setTimeout(() => {
             console.log("周")
-            resolve();     //这一步必写，否则会阻塞在这里
+            resolve('周 then Fun');     //这一步必写，否则会阻塞在这里
         }, 1000);
     })
    
 }
-f2=()=>{
+let f2=()=>{
     return new Promise((resolve)=>{
         setTimeout(() => {
             console.log("震")
@@ -46,7 +46,7 @@ f2=()=>{
         }, 1000);
     })
 }
-f3=()=>{
+let f3=()=>{
     return new Promise((resolve)=>{
         setTimeout(() => {
             console.log("南")
@@ -55,12 +55,15 @@ f3=()=>{
     })
 }
 async function  con(){
-         await f1();
-         await f2();
-         await f3();
+    await f1().then(v=>console.log(v));//周 then Fun
+    await f2();
+    await f3();
+    console.log('王大锤')
+    return '123' //return 之后then的参数才会得到值 ，类似return Promise.resolve(123)
+
 }
-con();
-// 打印结果  每隔1秒输出一个字  周 震 南
+// con().then(v=>console.log(v,'confun then Fun'));
+// 打印结果  每隔1秒输出一个字   隔1s 周(紧接着打印 周 then Fun) 隔1s 震  隔1s  南  接着打印王大锤 接着打印123confun then Fun
 
 
 
@@ -80,13 +83,22 @@ function H3(){
     },1000)
 }
 async function  Hon(){
-    // 同时执行
+    // 同步执行
+    //await 后面不跟promise  等于如下代码 有没有await不影响
+    // H1()
+    // H1()
+    // H1()
+    // console.log('王大锤 HonFun')
+
     await H1();
     await H2();
-    await H3();
+    await H3();//await 后面不跟promise     h2不等待h1类似。。。 console.log('王大锤 HonFun')也不会等待，会率先执行
+    console.log('王大锤 HonFun')
+    return '123'//return 之后then的参数才会得到值 ，类似return Promise.resolve(123)
 }
-Hon();
-// 打印结果  隔了一秒后，同时输出三个字 I am  fangqianwen  
+Hon().then(v=>console.log(v,'Hon Fun Then'));
+// 打印结果  王大锤 HonFun   123Hon Fun Then 隔了一秒后，同时输出三个字 I am  fangqianwen  
+// 之所以这样是因为王大锤 HonFun是同步任务顺序执行  promise在事件轮询的微队列在同步任务之后执行  await在事件轮询的宏队列最后才执行   
 
 
 
@@ -97,7 +109,7 @@ Hon();
 
 
 // async await测试
-// 理解：async表示这个是async函数，
+// 理解：async表示这个是async函数 返回一个promise对象 可硬使用sleepfun.then(v=>v)，必须dei renturn才可以，否则then的参数是一个undefined
 // await只能等待promise返回结果了才继续执行，后面应该跟着一个promise对象，跟一个其他返回值也没关系，只是会立即执行(会默认变为Promise.resolve(value))，没有意义
 function sleepFun(time){
     let p = new Promise((resolve,reject)=>{
@@ -120,8 +132,9 @@ async function startFun(){
     }catch(error){
         console.log(error);
     }
-
 };
+// startFun();
+
 // toString() 是 Object 的原型方法，调用该方法，默认返回当前对象的 [[Class]] 。这是一个内部属性，其格式为 [object Xxx] ，其中 Xxx 就是对象的类型。
 // 对于 Object 对象，直接调用 toString()  就能返回 [object Object] 。而对于其他对象，则需要通过 call / apply 来调用才能返回正确的类型信息。
 
@@ -131,7 +144,6 @@ async function startFun(){
     Object.prototype.toString.apply([1,2,3])//[object Array]
 
 
-startFun();
 
 
 
@@ -150,7 +162,7 @@ startFun();
     let p2 = wake(2000)
     
     Promise.all([p1, p2]).then((result) => {
-        console.log(result)       // [ '3秒后醒来', '2秒后醒来' ]
+        // console.log(result)       // [ '3秒后醒来', '2秒后醒来' ]
     }).catch((error) => {
         console.log(error)
     })
@@ -159,20 +171,20 @@ startFun();
 
     //Promise.race()
     //顾名思义，Promse.race就是赛跑的意思，意思就是说，Promise.race([p1, p2, p3])里面哪个结果获得的快，就返回那个结果，不管结果本身是成功状态还是失败状态。
-    let p1 = new Promise((resolve, reject) => {
+    let p3 = new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve('success')
         },1000)
     })
     
-    let p2 = new Promise((resolve, reject) => {
+    let p4 = new Promise((resolve, reject) => {
         setTimeout(() => {
             reject('failed')
         }, 500)
     })
     
-    Promise.race([p1, p2]).then((result) => {
-        console.log(result)
+    Promise.race([p3, p4]).then((result) => {
+        // console.log(result)
     }).catch((error) => {
         console.log(error)  // 打开的是 'failed'
     })
