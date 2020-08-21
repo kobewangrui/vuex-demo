@@ -17,6 +17,11 @@ asyncFun().then((val)=>{
 }).catch((error)=>{
     // console.log(error);
 });
+// asyncFun().then((val)=>{
+//     console.log(val);
+// },(error)=>{
+//     console.log(error);
+// });
 
 
 
