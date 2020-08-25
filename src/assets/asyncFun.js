@@ -72,6 +72,7 @@ function H1(){//await后普通
     setTimeout(()=>{
         console.log("I  ")
     },1000)
+    console.log('H1 Fun after')
 }
 function H2(){
     setTimeout(()=>{
