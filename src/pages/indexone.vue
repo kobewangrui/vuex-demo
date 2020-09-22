@@ -7,7 +7,7 @@
 export default{}
 // 应当直接在 Object 构造器对象上调用此方法，而不是在任意一个 Object 类型的实例上调用。
 //vue双向绑定原理  数据劫持 结合 发布订阅模式
-// 核心： object.defineProperty 
+// 核心： Object.defineProperty 
 
 // defineProperty 接收三个参数
 // object （必须有  操作的对象本身 这个很容易理解不传它操作谁？）
