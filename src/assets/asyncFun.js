@@ -99,8 +99,8 @@ async function  Hon(){
     return '123'//return 之后then的参数才会得到值 ，类似return Promise.resolve(123)
 }
 Hon().then(v=>console.log(v,'Hon Fun Then'));
-// 打印结果 H1Fun(所以说不放在promise容器没用) 王大锤 HonFun   123Hon Fun Then 隔了一秒后，同时输出三个字 I am  fangqianwen  
-// 之所以这样是因为王大锤 HonFun是同步任务顺序执行  promise在事件轮询的微队列在同步任务之后执行  await在事件轮询的宏队列最后才执行   
+// 打印结果 H1Fun(所以说不放在promise容器没用) 王大锤 HonFun   123Hon Fun Then 隔了一秒后，同时输出三个字 I am  fangqianwen
+// 之所以这样是因为王大锤 HonFun是同步任务顺序执行  promise在事件轮询的微队列在同步任务之后执行  await在事件轮询的宏队列最后才执行
 
 
 
@@ -111,7 +111,7 @@ Hon().then(v=>console.log(v,'Hon Fun Then'));
 
 
 // async await测试
-// 理解：async表示这个是async函数 返回一个promise对象 可硬使用sleepfun.then(v=>v)，必须dei renturn才可以，否则then的参数是一个undefined
+// 理解：async表示这个是async函数 返回一个promise对象 可硬使用sleepfun.then(v=>v)，必须得 return才可以，否则then的参数是一个undefined
 // await只能等待promise返回结果了才继续执行，后面应该跟着一个promise对象，跟一个其他返回值也没关系，只是会立即执行，没有意义
 function sleepFun(time){
     let p = new Promise((resolve,reject)=>{
