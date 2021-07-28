@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Index from '@/components/index'
 import Indexone from '@/pages/indexone'
 import Indextwo from '@/pages/indextwo'
+import Indexthree from '@/pages/indexThree'
 import store from '@/vuex/store'//引入store
 
 Vue.use(Router)
@@ -24,6 +25,11 @@ export default new Router({
       path: '/pageTwo',
       name: 'indexTwo',
       component: Indextwo
+    },
+    {
+      path: '/pageThree',
+      name: 'indexThree',
+      component: Indexthree
     },
   ]
 })

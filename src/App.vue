@@ -2,6 +2,7 @@
   <div id="app">
       <router-link to="/pageOne" tag="h5">跳转indexone</router-link>
       <router-link to="/pageTwo" tag="h5">跳转indexTwo</router-link>
+      <router-link to="/pageThree" tag="h5">跳转indexThree</router-link>
       <router-view/>
   </div>
 </template>
