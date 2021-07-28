@@ -1,7 +1,7 @@
 <template>
 <div>
     SoltTest 1:
-    <SoltTest>改了名字</SoltTest>
+    <SoltTest><i>改了名字</i></SoltTest>
     SoltTest 2:
     <SoltTest>
         <template v-slot:header>
