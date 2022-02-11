@@ -111,6 +111,11 @@ Hon().then(v=>console.log(v,'Hon Fun Then'));
 
 
 // async await测试
+
+// async testFun(){}
+//async函数如果没有return  ,则默认return一个Promise.resolve(undefined),     return value 等于 Promise.resolve(value)
+    
+
 // 理解：async表示这个是async函数 返回一个promise对象 可以使用sleepfun.then(v=>v)，不return  会默认return 一个new Promise
 // await只能等待promise返回结果了才继续执行，后面应该跟着一个promise对象，跟一个其他返回值也没关系，只是会立即执行，没有意义
 function sleepFun(time){
@@ -124,7 +129,7 @@ function sleepFun(time){
             }
         },time);
     });
-    return p;//return一个promise对象  如果没有return  ,则默认return一个Promise.resolve(undefined),     return value 等于 Promise.resolve(value)
+    return p;
 };
 
 async function startFun(){
