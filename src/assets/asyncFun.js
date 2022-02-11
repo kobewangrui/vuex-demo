@@ -67,19 +67,19 @@ async function  con(){
 
 
 
-function H1(){//await后普通
+async function H1(){//await后普通
     console.log('H1 Fun')
     setTimeout(()=>{
         console.log("I  ")
     },1000)
     console.log('H1 Fun after')
 }
-function H2(){
+async function H2(){
     setTimeout(()=>{
     console.log("am  ")
    },1000)
 }
-function H3(){
+async function H3(){
     setTimeout(()=>{
     console.log("fangqianwen  ")
     },1000)
