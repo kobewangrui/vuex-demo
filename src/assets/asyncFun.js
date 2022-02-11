@@ -111,7 +111,7 @@ Hon().then(v=>console.log(v,'Hon Fun Then'));
 
 
 // async await测试
-// 理解：async表示这个是async函数 返回一个promise对象 可硬使用sleepfun.then(v=>v)，必须得 return才可以，否则then的参数是一个undefined
+// 理解：async表示这个是async函数 返回一个promise对象 可以使用sleepfun.then(v=>v)，不return  会默认return 一个new Promise
 // await只能等待promise返回结果了才继续执行，后面应该跟着一个promise对象，跟一个其他返回值也没关系，只是会立即执行，没有意义
 function sleepFun(time){
     let p = new Promise((resolve,reject)=>{
